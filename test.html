@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Test</title>
+</head>
+<body>
+    <h1>Testing Libraries</h1>
+    <div id="status"></div>
+    
+    <script src="https://unpkg.com/three@0.128.0/build/three.min.js"></script>
+    <script src="https://unpkg.com/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://unpkg.com/d3@7.8.5/dist/d3.min.js"></script>
+    <script src="https://unpkg.com/topojson@3.0.2/dist/topojson.min.js"></script>
+    
+    <script>
+        const status = document.getElementById('status');
+        let messages = [];
+        
+        if (typeof THREE !== 'undefined') {
+            messages.push('✅ Three.js loaded');
+        } else {
+            messages.push('❌ Three.js NOT loaded');
+        }
+        
+        if (typeof THREE !== 'undefined' && THREE.OrbitControls) {
+            messages.push('✅ OrbitControls loaded');
+        } else {
+            messages.push('❌ OrbitControls NOT loaded');
+        }
+        
+        if (typeof d3 !== 'undefined') {
+            messages.push('✅ D3.js loaded');
+        } else {
+            messages.push('❌ D3.js NOT loaded');
+        }
+        
+        if (typeof topojson !== 'undefined') {
+            messages.push('✅ TopoJSON loaded');
+        } else {
+            messages.push('❌ TopoJSON NOT loaded');
+        }
+        
+        status.innerHTML = messages.join('<br>');
+    </script>
+</body>
+</html>
